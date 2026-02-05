@@ -2,14 +2,14 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const port = 3000;
+const port = 3001;
 
-// Serve static files from the 'fpac' directory
+// Serve static files from the project root
 app.use(express.static(path.join(__dirname, './')));
 
-// Redirect root URL to the documentation homepage
+// Serve index.html at root
 app.get('/', (req, res) => {
-    res.redirect('/fpac-website/pages/home.html');
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Start the server

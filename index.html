@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>USWDS Starter</title>
+  <title>Civic Starter</title>
   <link rel="stylesheet" href="dist/uswds/css/uswds.min.css">
-  <link rel="stylesheet" href="dist/fpac-style/styles/fpac-design-system.css">
+  <link rel="stylesheet" href="dist/civic/styles/civic.css">
 </head>
 <body>
   <a class="usa-skipnav" href="#main-content">Skip to main content</a>
@@ -15,7 +15,7 @@
       <div class="usa-navbar">
         <div class="usa-logo">
           <em class="usa-logo__text">
-            <a href="/" title="USWDS Starter">USWDS Starter</a>
+            <a href="/" title="Civic Starter">Civic Starter</a>
           </em>
         </div>
       </div>
@@ -27,10 +27,11 @@
       <div class="grid-container">
         <div class="grid-row grid-gap">
           <div class="tablet:grid-col-8">
-            <h1 class="font-heading-xl margin-top-0">USWDS Starter Template</h1>
+            <h1 class="font-heading-xl margin-top-0">Civic Starter</h1>
             <p class="usa-intro">
-              A clean, forkable starter template built on the U.S. Web Design System (USWDS).
-              Everything you need to launch an accessible, mobile-friendly site.
+              A clean, forkable starter template for the Civic Design System.
+              Everything you need to launch an accessible, mobile-friendly site
+              built on the U.S. Web Design System (USWDS).
             </p>
 
             <h2 class="font-heading-lg">Getting Started</h2>
@@ -40,7 +41,7 @@
                 <pre class="bg-base-lightest padding-2 margin-y-1"><code>npm install</code></pre>
               </li>
               <li>
-                <strong>Build assets</strong>
+                <strong>Build all assets</strong>
                 <pre class="bg-base-lightest padding-2 margin-y-1"><code>npm run build</code></pre>
               </li>
               <li>
@@ -49,47 +50,79 @@
               </li>
             </ol>
 
+            <h2 class="font-heading-lg">How This Works with civic-guide</h2>
+            <p>
+              This starter template is the companion to
+              <a href="https://github.com/michaelasaro/civic-guide" class="usa-link">civic-guide</a>,
+              which is the full reference site for the Civic Design System. The two repos
+              are designed to work together:
+            </p>
+            <ul class="usa-list">
+              <li><strong>civic-guide</strong> — The reference site. Use it to explore components,
+                customize your theme settings, and preview changes in context.</li>
+              <li><strong>civic-starter</strong> (this repo) — Your clean starting point.
+                Fork this, copy your customized styles from civic-guide, and build your site.</li>
+            </ul>
+
+            <h3 class="font-heading-md">Workflow</h3>
+            <ol class="usa-list">
+              <li>Customize your theme in <strong>civic-guide</strong> (colors, typography, spacing, components)</li>
+              <li>Copy your <code>src/styles/</code> folder from civic-guide into this project</li>
+              <li>Run <code>npm run build</code> to compile your customized theme</li>
+              <li>Start building your pages</li>
+            </ol>
+
             <h2 class="font-heading-lg">What's Included</h2>
             <ul class="usa-list">
               <li><strong>USWDS 3.13.0</strong> — The complete U.S. Web Design System</li>
-              <li><strong>SCSS tokens</strong> — Customizable design tokens in <code>src/styles/tokens/</code></li>
-              <li><strong>Fonts</strong> — Public Sans, Merriweather, Source Sans Pro, Roboto Mono</li>
-              <li><strong>Build system</strong> — Gulp-based compilation with USWDS Compile</li>
+              <li><strong>Civic theme</strong> — Customizable settings in <code>src/styles/uswds-settings/</code></li>
+              <li><strong>Build system</strong> — Gulp 5 + Dart Sass + PostCSS (autoprefixer + minification)</li>
+              <li><strong>Sourcemaps</strong> — For easier debugging in browser dev tools</li>
+              <li><strong>Watch mode</strong> — Auto-recompile when you edit styles</li>
             </ul>
 
+            <h2 class="font-heading-lg">Scripts</h2>
+            <pre class="bg-base-lightest padding-2 margin-y-1"><code>npm run build          # Clean and build all assets
+npm run build:styles   # Compile styles only
+npm run watch:styles   # Watch for changes and recompile
+npm run serve          # Start development server (port 3001)
+npm run clean          # Remove dist/ folder</code></pre>
+
             <h2 class="font-heading-lg">Required Files</h2>
-            <p>Include these in your HTML:</p>
-            <pre class="bg-base-lightest padding-2 margin-y-1"><code>&lt;!-- CSS --&gt;
+            <p>Include these in your HTML pages:</p>
+            <pre class="bg-base-lightest padding-2 margin-y-1"><code>&lt;!-- CSS (in head) --&gt;
 &lt;link rel="stylesheet" href="dist/uswds/css/uswds.min.css"&gt;
-&lt;link rel="stylesheet" href="dist/fpac-style/styles/fpac-design-system.css"&gt;
+&lt;link rel="stylesheet" href="dist/civic/styles/civic.css"&gt;
 
 &lt;!-- JavaScript (before closing body tag) --&gt;
 &lt;script src="dist/uswds/js/uswds.min.js"&gt;&lt;/script&gt;</code></pre>
 
             <h2 class="font-heading-lg">Project Structure</h2>
-            <pre class="bg-base-lightest padding-2 margin-y-1"><code>uswds-starter/
+            <pre class="bg-base-lightest padding-2 margin-y-1"><code>civic-starter/
 ├── src/
-│   ├── styles/        # SCSS source files
-│   │   ├── tokens/    # Design tokens (colors, typography, etc.)
-│   │   └── index.scss # Main entry point
-│   ├── fonts/         # Web fonts
-│   └── images/        # Logo and image assets
-├── dist/              # Compiled output (generated)
-├── gulpfile.js        # Build configuration
-├── package.json       # Dependencies and scripts
-└── index.html         # This page</code></pre>
-
-            <h2 class="font-heading-lg">Customization</h2>
-            <p>
-              Modify the design tokens in <code>src/styles/tokens/</code> to customize colors,
-              typography, spacing, and more. Then run <code>npm run build</code> to recompile.
-            </p>
+│   ├── styles/              # SCSS source files
+│   │   ├── uswds-settings/  # Theme settings (colors, typography, etc.)
+│   │   ├── _bridge.scss     # Connects settings to USWDS
+│   │   ├── _packages.scss   # Choose which components to include
+│   │   ├── custom-styles.scss # Your custom CSS overrides
+│   │   └── index.scss       # Main entry point
+│   ├── fonts/               # Custom web fonts (if any)
+│   └── images/              # Logo and image assets
+├── dist/                    # Compiled output (generated by build)
+│   ├── civic/               # Your themed assets
+│   │   ├── styles/          # civic.css + civic.min.css + sourcemaps
+│   │   ├── fonts/           # Copied fonts
+│   │   └── images/          # Copied images
+│   └── uswds/               # Stock USWDS assets (css, js, fonts, img)
+├── gulpfile.js              # Build configuration
+├── package.json             # Dependencies and scripts
+└── index.html               # This page</code></pre>
 
             <h2 class="font-heading-lg">Resources</h2>
             <ul class="usa-list">
+              <li><a href="https://github.com/michaelasaro/civic-guide" class="usa-link">civic-guide on GitHub</a> — Full reference site</li>
               <li><a href="https://designsystem.digital.gov/" class="usa-link">USWDS Documentation</a></li>
-              <li><a href="https://github.com/uswds/uswds" class="usa-link">USWDS on GitHub</a></li>
-              <li><a href="https://designsystem.digital.gov/components/" class="usa-link">Component Library</a></li>
+              <li><a href="https://designsystem.digital.gov/components/" class="usa-link">USWDS Component Library</a></li>
             </ul>
           </div>
         </div>
@@ -105,7 +138,10 @@
             <nav class="usa-footer__nav" aria-label="Footer navigation">
               <ul class="grid-row grid-gap">
                 <li class="mobile-lg:grid-col-auto usa-footer__primary-content">
-                  <a class="usa-footer__primary-link" href="https://github.com/michaelasaro/uswds-starter">GitHub</a>
+                  <a class="usa-footer__primary-link" href="https://github.com/michaelasaro/civic-starter">GitHub</a>
+                </li>
+                <li class="mobile-lg:grid-col-auto usa-footer__primary-content">
+                  <a class="usa-footer__primary-link" href="https://github.com/michaelasaro/civic-guide">civic-guide</a>
                 </li>
               </ul>
             </nav>
