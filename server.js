@@ -1,16 +1,31 @@
-// Express server setup
+// ============================================================================
+// Development Server
+// ============================================================================
+// A simple Express server for previewing the site locally.
+//
+// Usage:
+//   npm run serve     → Starts server at http://localhost:3001
+//
+// The server serves static files from:
+//   - /civic/         → Compiled theme CSS, fonts, images (from dist/)
+//   - /uswds/         → USWDS assets: fonts, icons, JS (from dist/)
+//
+// HTML pages reference assets at /civic/ and /uswds/ (no /dist/ prefix).
+// This matches the deployed structure on GitHub Pages where dist/ is the root.
+//
+// ============================================================================
+
 const express = require('express');
 const app = express();
 const path = require('path');
 const port = 3001;
 
-// Serve static files from the project root
-app.use(express.static(path.join(__dirname, './')));
+// Serve compiled assets from dist/ at root paths (/civic/, /uswds/)
+// This mirrors the GitHub Pages structure where dist/ contents are the root
+app.use(express.static(path.join(__dirname, 'dist')));
 
-// Serve index.html at root
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
+// Serve project root for /site/, index.html, etc.
+app.use(express.static(path.join(__dirname, './')));
 
 // Start the server
 app.listen(port, () => {
